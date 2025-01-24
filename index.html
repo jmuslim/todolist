@@ -3,11 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>To Do List</title>
+    <link rel="stylesheet" href="asstes/css/styles.css">
+    <link rel="stylesheet" href="asstes/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="asstes/fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="asstes/fontawesome/css/all.css">
+
 </head>
-<body>
-    <h1>
-        Hello World
-    </h1>
+<body class="bg-secondary">
+    <!-- Heading  -->
+    <div class="text-center">
+        <h2 class="text-dark m-3">To Do List</h2>
+    </div>
+    <!-- Add button  -->
+      <button type="button" data-bs-toggle="modal" data-bs-target="#addTaskModal" 
+          class="btn btn-warning m-2 text-center addTaskBtn"> <a href="asstes/html/add.html"></a>
+         <i class="fa-solid fa-user-plus"></i>
+      </button>
+
+
+    <!-- Table starts here  -->
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Picture</th>
+            <th scope="col">Name</th>
+            <th scope="col">Task</th>
+            <th scope="col">Action Required</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody class="tbody">
+            <!-- Task will be added daynamicly -->
+          <tr>
+            <td>Upload pic here</td>
+            <td>Name here</td>
+            <td>What is the task</td>
+            <td>
+                <div class="form-check">
+                   <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                   <label class="form-check-label" for="exampleRadios2">
+                     Task completed.
+                   </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                  <label class="form-check-label" for="exampleRadios1">
+                     Task needs to do.
+                  </label>
+                 </div>
+            </td>
+            <td>
+              <button type="button" class=" btn btn-danger deleteBtn" data-bs-target="#deleteTaskModal" data-bs-toggle="modal">
+                <i class="fa-solid fa-trash"></i>
+                <br>
+              </button>
+              <button type="button" class=" btn btn-secondary editBtn" data-bs-toggle="modal" data-bs-target="#editTaskModal">
+                <i class=" fa-solid fa-user-pen"></i>
+                <br>
+             </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+    <!-- Start addTaskModal-->
+  <div class="modal fade" id="addTaskModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add new task</h5>
+          <button type="button" class="close closeBtn" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Upload image</label>
+              <input type="file" class="form-control" id="exampleFormControlInput1">
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1 p-2">Name</label>
+              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="name">
+            </div>
+            <div class="form-group p-2">
+              <label for="exampleFormControlInput1">Task</label>
+              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="task">
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">Action Required</label>
+              <select class="form-control" id="exampleFormControlSelect1">
+                <option selected>Choose...</option>
+                <option>Done</option>
+                <option>Need an action</option>
+              </select>
+            </div>
+          </form>
+           
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary closeBtn" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary saveBtn">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- End of add task modal-->
+    
+    <!-- Start of editTaskModal-->
+     <div class="modal fade" id="editTaskModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Edit task</h5>
+            <button type="button" class="close closeBtn" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Change image</label>
+                <input type="file" class="form-control" id="exampleFormControlInput1">
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1 p-2">Name</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="name">
+              </div>
+              <div class="form-group p-2">
+                <label for="exampleFormControlInput1">Task</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="task">
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Action Required</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                  <option selected>Choose...</option>
+                  <option>Done</option>
+                  <option>Need an action</option>
+                </select>
+              </div>
+            </form>
+             
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary closeBtn" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary saveBtn">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End add task modal-->
+
+    <!-- Start deleteTaskModal-->
+    <div class="modal fade" id="deleteTaskModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Delete task</h5>
+            <button type="button" class="close closeBtn" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Are you sure want to delete this task?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary closeBtn" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary saveBtn">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+
+
+
+    <script src="asstes/javascript/jquery-2.2.3.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+    <script src="asstes/fontawesome/js/fontawesome.min.js"></script>
+    <script src="asstes/bootstrap-5.3.2-dist/js/bootstrap.min.js"></script>
+    <script src="asstes/javascript/script.js"></script>
 </body>
 </html>
